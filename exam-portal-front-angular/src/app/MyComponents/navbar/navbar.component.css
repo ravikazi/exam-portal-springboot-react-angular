@@ -1,0 +1,12 @@
+ul li{
+    list-style: none;
+}
+.mat-menu-item{
+    font-size: 20px;
+    ;
+}
+.mat-menu-item >img{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}

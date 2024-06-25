@@ -1,0 +1,20 @@
+.profile-card{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.profile-card img{
+    height: 20opx;
+    width: 200px;
+    border-radius: 50%;
+    align-self: center;
+
+}
+
+table {
+    width: 50%;
+    border: .5px solid #7e7171;
+    padding: 10px;
+    margin: 0 auto;
+}

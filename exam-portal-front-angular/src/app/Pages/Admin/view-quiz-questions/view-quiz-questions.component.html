@@ -1,0 +1,38 @@
+<mat-card class="question">
+    <mat-card-header>
+      <mat-card-title>Questions of {{quizTitle}}</mat-card-title>
+    </mat-card-header>
+ </mat-card>
+
+<mat-card class="question" *ngFor="let ques of questions; let i = index">
+    <mat-card-content>
+        <p><b>Question {{i+1}}) </b> <span class="ml20" [innerHTML]="ques.content"></span></p>
+        <div class="row">
+            <div class="col-md-6"><b>1)</b><span class="ml20">{{ques.option1}}</span> </div>
+            <div class="col-md-6"><b>2)</b><span class="ml20">{{ques.option2}}</span> </div>
+            <div class="col-md-6"><b>3)</b><span class="ml20">{{ques.option3}}</span></div>
+            <div class="col-md-6"><b>4)</b><span class="ml20">{{ques.option4}}</span> </div>
+        </div>
+        <mat-divider></mat-divider>
+        <mat-list-item class="ml20">
+             <p><b>Correct Answer: </b><span class="ml20">{{ques.answer}}</span></p>
+        </mat-list-item>
+        <mat-card-actions>
+            <button mat-mini-fab color="warn" (click)="deleteQuestion(ques.id)"><mat-icon>delete_outline</mat-icon></button>
+            <button mat-button mat-flat-button color="accent" [routerLink]="'/admin/question/'+ques.id" class="ml20">Update</button>
+          </mat-card-actions>
+    </mat-card-content>
+    
+</mat-card>
+
+
+
+<div class="container text-center">
+    <button mat-fab color="primary" [routerLink]="'/admin/add-question/'+quizId+'/'+quizTitle">
+        <mat-icon>add</mat-icon>
+    </button>
+    &nbsp;&nbsp;
+    <button mat-fab color="accent">
+        <mat-icon>share</mat-icon>
+    </button>
+</div>

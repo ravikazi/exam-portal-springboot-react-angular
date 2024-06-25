@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="toggleSideBar()">
+        <mat-icon>menu_book</mat-icon>
+    </button>
+    <span>Exam Portal</span>
+    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+        <ul fxLayout="row" fxLayoutGap="20px">
+          <!-- Home -->
+          <li>
+            <button mat-icon-button routerLink="/admin" *ngIf="isLoggedIn"><mat-icon>home</mat-icon></button>
+            <button mat-icon-button routerLink="/" *ngIf="!isLoggedIn"><mat-icon>home</mat-icon></button>
+          </li>          
+          <!-- settings -->
+          <li>
+            <button mat-icon-button><mat-icon>settings</mat-icon></button>
+          </li>
+
+          <li>
+            <button mat-icon-button><mat-icon>help_outline</mat-icon></button>
+          </li>
+          <!-- Profile settings -->
+          <li *ngIf="isLoggedIn">
+            <button mat-button >{{user.username}}</button>
+          </li>
+          <li>
+              <button mat-button [matMenuTriggerFor]="menu"><mat-icon>person_outline</mat-icon></button>
+              <mat-menu #menu="matMenu">
+              <button mat-menu-item *ngIf="isLoggedIn" (click)="logout()"><mat-icon>exit_to_app</mat-icon>Sign Out</button>
+              <button mat-menu-item *ngIf="!isLoggedIn" routerLink="login"><mat-icon>login</mat-icon>Log In</button>
+              <button mat-menu-item *ngIf="!isLoggedIn" routerLink="signup"><mat-icon>app_registration</mat-icon>Register</button>
+              </mat-menu>
+          </li>
+        </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

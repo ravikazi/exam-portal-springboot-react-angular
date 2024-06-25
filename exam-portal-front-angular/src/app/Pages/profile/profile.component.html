@@ -1,0 +1,51 @@
+<mat-card class="profile-card">
+    <mat-card-header>
+      <mat-card-title>My Profile Details</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="/assets/img/{{user.profile}}" alt="profile-img">
+    <mat-card-content>
+        <!-- {{user | json}} -->
+        <table>
+            <tbody>
+                <tr>
+                    <td>Username</td>
+                    <td>{{user.username}}</td>
+                </tr>
+                <tr>
+                    <td>First Name</td>
+                    <td>{{user.firstname}}</td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td>{{user.lastname}}</td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>{{user.phone}}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{user.email}}</td>
+                </tr>
+
+                <tr>
+                    <td>Role</td>
+                    <td>{{user.authorities[0].authority}}</td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>{{user.enabled?'ACTIVE':'INACTIVE'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-fab color="primary">
+            <mat-icon>edit</mat-icon>
+        </button>
+        &nbsp;&nbsp;
+        <button mat-fab color="accent">
+            <mat-icon>share</mat-icon>
+        </button>
+    </mat-card-actions>
+  </mat-card>
